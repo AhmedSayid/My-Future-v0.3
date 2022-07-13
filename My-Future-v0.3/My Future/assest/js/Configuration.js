@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-analytics.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup,GithubAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
+import { getDatabase, ref, set, get, onChildAdded, update } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDITMWpktkrC8VDqvi8yP47F5309LycSQg",
@@ -16,6 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const analytics = getAnalytics(app);
+const db = getDatabase(app)
 ///
 const provider_google = new GoogleAuthProvider(app);
 const provider_github = new GithubAuthProvider(app);
@@ -25,8 +27,30 @@ const provider_github = new GithubAuthProvider(app);
 provider_github.setCustomParameters({
     'allow_signup': 'true'
 });
-function Provider_Router(){location.href="./provider"}
-function Buyer_Router(){location.href="./buy"}
+function Provider_Router(){
+    onAuthStateChanged(auth,function(e){
+        update(ref(db,e.uid),{
+            "Name":e.displayName,
+            "Type":"provider"
+        }).then(()=>{
+            location.href="./posts"
+        }).catch(()=>{
+            signOut(auth)
+        })
+    })
+}
+function Buyer_Router(){
+    onAuthStateChanged(auth,function(e){
+        update(ref(db,e.uid),{
+            "Name":e.displayName,
+            "Type":"buyer"
+        }).then(()=>{
+            location.href="./buy"
+        }).catch(()=>{
+            signOut(auth)
+        })
+    })
+}
 //////////provider
 export function signin_with_github_provider(){
     document.getElementById('signin_with_github_provider').onclick = function(){

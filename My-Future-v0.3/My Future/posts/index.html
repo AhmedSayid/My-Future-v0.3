@@ -178,9 +178,8 @@
 
                             <div class="container m-2">
                                 <input class="form-control w-100" type="text" placeholder="what do U think"
-                                    v-model="taskText">
-                                <button style="outline: none; height: 50px;" class="btn btn-primary mt-3"
-                                    @click.prevent="addTask" :disabled="!taskText">Add Post</button>
+                                    v-model="taskText" id="tx">
+                                <button style="outline: none; height: 50px;" class="btn btn-primary mt-3 disabled" id="send">Add Post</button>
                             </div>
                         </div>
                     </div>
@@ -188,8 +187,64 @@
                 <!--=========######################################========-->
 
                 <!--=========######################################========-->
-                <div style="display: flex; justify-content: center;" class="tasks-list" v-for="(task, index) in tasks"
-                    :key="index">
+
+                <div id="box">
+
+                </div>
+
+
+            </div>
+            <!--=========######################################========-->
+        </div>
+        <!--=========######################################========-->
+
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="../assest/js/main.js"></script>
+<script src="../assest/js/Auth.js" type="module"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-auth.js";
+
+    import { getDatabase, ref, set, get, onChildAdded, update } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyDITMWpktkrC8VDqvi8yP47F5309LycSQg",
+        authDomain: "monospace-a3435.firebaseapp.com",
+        projectId: "monospace-a3435",
+        storageBucket: "monospace-a3435.appspot.com",
+        messagingSenderId: "539486483268",
+        appId: "1:539486483268:web:0bb803cd88fff46212dd11",
+            measurementId: "G-83PF65M3WV"
+    };
+    const app = initializeApp(firebaseConfig);
+    var auth = getAuth(app)
+    var db = getDatabase(app)
+    document.getElementById('send').onclick = function(){
+
+        onAuthStateChanged(auth,function(e){
+
+            const num = Math.floor(Math.random()*1000000)
+
+            set(ref(db,`${e.uid}/posts/${num}`),{
+                "id":num,
+                "owner_UID":e.uid,
+                "text":document.getElementById('tx').value
+            }).then(() => {
+                document.getElementById('tx').value = ''
+            })
+
+        })
+
+    }
+
+    onAuthStateChanged(auth,function(e){
+        onChildAdded(ref(db,`${e.uid}/posts`),function(e_on){
+            var box = ''
+            box += `                
+                <div style="display: flex; justify-content: center;" class="tasks-list">
                     <!--=========######################################========-->
 
                     <div class="d-flex position-realative flex-column"
@@ -197,28 +252,30 @@
 
                         <div class="d-flex justify-content-end flex-column align-items-end m-2">
                             <div class="d-flex align-items-center">
-                                <span class="text-light fw-bold pr-2">Name</span>
+                                <span class="text-light fw-bold pr-2">${e.displayName}</span>
 
                                 <img style="width: 40px; border-radius: 50%; float: right;margin-left: 7px;"
-                                    src="../assest/img/user.jpg" alt="">
+                                    src="${e.photoURL}" alt="">
                             </div>
                         </div>
                         <div dir="rtl"
                             style="float:right ; padding: 23px; display: flex; justify-content: center;margin-bottom: 20px;flex-direction: column;">
                             <div style="max-height:300px; border: solid 1px #9d9ea0;padding: 32px; font-size: 25px; border-radius: 10px;overflow: scroll;overflow-wrap:normal;word-wrap:break-word;"
                                 class="post-space text-light">
-                                {{ task.words }}
+                                ${e_on.val().text}
                             </div>
                         </div>
                         <div style="display: flex; justify-content: center;">
                             <div
                                 style="border: 1px solid #9d9ea0;width: 95%; height: 50px;border-radius: 5px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center;">
-                                <div onclick="like()"><svg style="cursor: pointer;color: #ffff; display: ;"
+                                <div onclick="like()">
+                                    <svg style="cursor: pointer;color: #ffff;"
                                         xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                         class="bi bi-hand-thumbs-up-fill" id="likee" viewBox="0 0 16 16">
                                         <path
                                             d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <div onclick="love()">
                                     <svg style="margin-left: 40px; color: #ffff; cursor: pointer;"
                                         xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
@@ -231,44 +288,16 @@
 
                         </div>
                     </div>
+                </div>`
+                document.getElementById('box').innerHTML += box
+        })
+    })
 
-                    <!--=========######################################========-->
-                    <!--=========######################################========-->
-                </div>
 
-
-
-            </div>
-            <!--=========######################################========-->
-        </div>
-        <!--=========######################################========-->
-        <script src="../assest/js/vue.js"></script>
-        <script>
-            var nonaty = new Vue({
-                el: '#akera',
-
-                data: {
-                    tasks: [],
-                    taskText: '',
-                },
-                methods: {
-                    addTask: function () {
-                        this.tasks.push({ words: this.taskText });
-                        this.taskText = '';
-                    },
-                    deleteTask: function (index) {
-                        this.tasks.splice(index, 1);
-                    }
-                }
-            });
-        </script>
-
-    </div>
-    </div>
-    </div>
-    </div>
-</body>
-<script src="../assest/js/main.js"></script>
-<script src="../assest/js/Auth.js" type="module"></script>
+    
+    
+    
+    document.getElementById('tx').addEventListener("keyup",function(e){e.target.value.length!=0?document.getElementById("send").className="btn btn-primary mt-3":document.getElementById("send").className="btn btn-primary mt-3 disabled"})
+</script>
 
 </html>
