@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assest/css/bootstrap.min.css">
+    <title>posts</title>
+</head>
+<style>
+    ::placeholder {transform: translateY(-50px);font-size: 22px;}
+    @keyframes ul {100% {transform: translateX(50px)}}
+</style>
+<body>
+    <div style="display: flex; justify-content: center;">
+        <span style="font-size: 35px;font-weight: 600; color: #00003a" class="btn btn-outline-light"> here u can post
+            and puplish ur service</span>
+    </div>
+    <div style="display: flex; justify-content: center;">    
+        <div style="margin-left: 50px;" class="btn btn-outline-warning text-dark" id="open">Our ruls to Post
+        </div></div>
+        <div style="display: none;justify-content: center; " id="show">
+            <ul style="margin-left: 20px;margin-top: 10px; animation: ul 0.7s alternate;"class="btn btn-outline-danger">
+                <li >We will take 10% of the price</li>
+                <li >Don't take the customer out our web</li>
+                <li >dont post if u don't have the srevice</li>
+            </ul>
+        </div>
+    <div style="display: flex;justify-content: center;">
+        <div
+            style="display: flex;justify-content: center; margin-top: 200px; border: solid 3px #dc3545; width: 75%;border-radius: 7px;" id="mar">
+            <input style="height: 200px; width: 70%; border: solid 2px #fff;outline: none;" type="text"
+                placeholder="type ur service">
+            <div style="height: 40px;margin-top: 140px;" class="btn btn-outline-danger"><span>puplish</span></div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('open').onclick = () => {
+        var
+            wifty = document.getElementById("show").style.display = "block";
+            document.getElementById("mar").style.marginTop="80px"
+    }
+</script>
+<script src="../assest/js/Auth.js" type="module"></script>
+</html>

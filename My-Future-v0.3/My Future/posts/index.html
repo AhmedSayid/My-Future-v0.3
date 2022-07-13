@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="../assest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/css/home.css">
+    <title>Post || page</title>
+</head>
+<html>
+<style>
+    ::-webkit-scrollbar {
+        width: 0
+    }
+</style>
+
+<body>
+    <header style="background-color: rgba(255, 255, 255, .5);-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);
+        box-shadow: 0 8px 32px rgba(85, 101, 128, 0.1);position: fixed;width: 100%;display: flex;justify-content: space-between;
+          align-items: center;z-index: 10;margin-right: 20px;" class="ggg bg-transparent p-2 w-100">
+        <h2 class="logo"><a
+                style=" font-weight: 520; margin-left: 20px; color: #545f7e; text-decoration: none;font-family: Montserrat, 'Open Sans', sans-serif !important;"
+                href="#" class="none"> MonoSpace </a></h2>
+        <!---------monospsace word---------->
+        <!---->
+        <!---->
+        <!---->
+        <!-- lg d-flex-->
+        <ul class="s m-3">
+
+            <!---------home icon---------->
+
+            <!---->
+            <!---->
+            <div class="d-flex flex-rows">
+
+                <div class="dropdown">
+                    <div style="margin-top: 8px;" class="hob" id="dropMenu">
+                        <img style="justify-content: start; margin-left: 5px; cursor: pointer;"
+                            src="../assest/img/united-states-of-america.png" class="bg-light dropdown-toggle drop-menu"
+                            type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
+                            id="d-d">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <rect data-name="Rectangle 21224" width="24" height="24" fill="none"></rect>
+                            <path data-name="Arrow - Right 2"
+                                d="M5.778,4.279c-.034.035-.162.184-.281.306A13.014,13.014,0,0,1,2.02,7a2.77,2.77,0,0,1-.707.2,1.16,1.16,0,0,1-.537-.131A1.124,1.124,0,0,1,.3,6.527a5.9,5.9,0,0,1-.154-.638A14.387,14.387,0,0,1,0,3.6,16.635,16.635,0,0,1,.128,1.391a5.1,5.1,0,0,1,.2-.8A1.071,1.071,0,0,1,1.279,0h.034a2.927,2.927,0,0,1,.793.245,13.014,13.014,0,0,1,3.4,2.38,3.4,3.4,0,0,1,.289.332A1.07,1.07,0,0,1,6,3.6a1.125,1.125,0,0,1-.222.683"
+                                transform="translate(15.199 10) rotate(90)" fill="#545F7E"></path>
+                        </svg>
+
+                        <!--------------drop icon-------------->
+                        <ul id="dpm" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li></li>
+                            <a class="dropdown-item hide" href="#">
+                                <span style="margin-right: 50px;">العربية</span>
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="30" height="30" viewBox="0 0 30 30">
+                                    <defs>
+                                        <clipPath id="a">
+                                            <rect class="a" width="30" height="30" rx="15"
+                                                transform="translate(2830 1084)" />
+                                        </clipPath>
+                                    </defs>
+                                    <g class="b" transform="translate(-2830 -1084)">
+                                        <g transform="translate(2830 1084)">
+                                            <path class="c" d="M0,0H30V10H0Z" />
+                                            <path class="d" d="M0,170.7H30v10H0Z" transform="translate(0 -160.698)" />
+                                            <path d="M0,341.3H30v10H0Z" transform="translate(0 -321.302)" />
+                                            <path class="e" d="M0,0H10.547V30H0Z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            </li>
+                            <!-- Icon Ar -->
+                            <li>
+
+                                <a class="dropdown-item" href="#">
+                                    <span style="margin-right: 20px;">English</span>
+                                    <img style="justify-content: start; margin-left: 5px; cursor: pointer;"
+                                        src="../assest/img/united-states-of-america.png"
+                                        class="bg-light dropdown-toggle drop-menu" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                </a>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- user options/icon -->
+                <!-- <li onclick="prof()" style="cursor:pointer;">
+              <img style="width: 40px;height: 40px; border: solid 0.5px #000016;border-radius: 50px;float: right;"
+                src="./assest/img/user img.jpg" alt="">
+            </li> -->
+                <!-- ------------------------------- -->
+                <div class="dropdown border p-1 rounded text-light" id="Counted_Auth"
+                    style="display:none;box-shadow:#aaaaaa 0px 0px 20px;">
+                    <div class="hob bg-dark rounded-2" id="dropMenu_2">
+
+
+
+                        <div class="d-flex justify-content-between flex-rows w-100">
+                            <div>
+                                <img style="justify-content: start; border-radius: 100%; margin-left: 5px; cursor: pointer;width: 40px;height: 40px;"
+                                    src="../assest/img/user.jpg" class="bg-light dropdown-toggle drop-menu"
+                                    type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                    aria-expanded="false" id="d-d">
+
+                                <div id="id_name" class="fw-bold" style="display:inline"></div>
+                            </div>
+
+                            <div>
+                                <svg style="margin-bottom:4px;" xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24">
+                                    <rect data-name="Rectangle 21224" width="24" height="24" fill="none"></rect>
+                                    <path data-name="Arrow - Right 2"
+                                        d="M5.778,4.279c-.034.035-.162.184-.281.306A13.014,13.014,0,0,1,2.02,7a2.77,2.77,0,0,1-.707.2,1.16,1.16,0,0,1-.537-.131A1.124,1.124,0,0,1,.3,6.527a5.9,5.9,0,0,1-.154-.638A14.387,14.387,0,0,1,0,3.6,16.635,16.635,0,0,1,.128,1.391a5.1,5.1,0,0,1,.2-.8A1.071,1.071,0,0,1,1.279,0h.034a2.927,2.927,0,0,1,.793.245,13.014,13.014,0,0,1,3.4,2.38,3.4,3.4,0,0,1,.289.332A1.07,1.07,0,0,1,6,3.6a1.125,1.125,0,0,1-.222.683"
+                                        transform="translate(15.199 10) rotate(90)" fill="#545F7E"></path>
+                                </svg>
+                            </div>
+                            <div>
+
+
+
+
+
+                                <ul id="dpm_prof" class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                    <li id="profile">
+                                        <a class="dropdown-item hide d-flex justify-content-start align-items-center fw-bold"
+                                            href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16">
+                                                <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                                <path
+                                                    d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                                            </svg>
+                                            <span style="margin-left:15px">Profile</span>
+                                        </a>
+                                    </li>
+
+                                    <li id="logout">
+                                        <a class="dropdown-item d-flex justify-content-start align-items-center fw-bold"
+                                            href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                                            </svg>
+                                            <span style="margin-left:15px">Logout</span>
+                                        </a>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ------------------------------- -->
+        </ul>
+    </header>
+    <div>
+        <div class="d-flex flex-column" id="akera">
+
+            <div class="d-flex align-items-center flex-column " style="margin-top: 80px;">
+                <div style=" margin-top:15px; width: 500px;">
+
+                    <div
+                        style="background-color: #1c1e21;align-items:flex-end !important;width:100%; height: auto; border-radius: 7px;margin-bottom: 15px;">
+
+                        <div class="d-flex justify-content-end flex-column align-items-end m-2 p-2">
+                            <div class="d-flex align-items-center">
+                                <span class="text-light fw-bold" id="name_post">Name</span>
+
+                                <img style="width: 40px; border-radius: 50%; float: right;margin-left: 7px;"
+                                    id="img_post" src="../assest/img/user.jpg" alt="">
+                            </div>
+
+                            <div class="container m-2">
+                                <input class="form-control w-100" type="text" placeholder="what do U think"
+                                    v-model="taskText">
+                                <button style="outline: none; height: 50px;" class="btn btn-primary mt-3"
+                                    @click.prevent="addTask" :disabled="!taskText">Add Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=========######################################========-->
+
+                <!--=========######################################========-->
+                <div style="display: flex; justify-content: center;" class="tasks-list" v-for="(task, index) in tasks"
+                    :key="index">
+                    <!--=========######################################========-->
+
+                    <div class="d-flex position-realative flex-column"
+                        style="flex-direction: column; margin-top: 15px; background-color: #1c1e21;  width: 500px; height: auto; border-radius: 10px;margin-bottom: 15px;">
+
+                        <div class="d-flex justify-content-end flex-column align-items-end m-2">
+                            <div class="d-flex align-items-center">
+                                <span class="text-light fw-bold pr-2">Name</span>
+
+                                <img style="width: 40px; border-radius: 50%; float: right;margin-left: 7px;"
+                                    src="../assest/img/user.jpg" alt="">
+                            </div>
+                        </div>
+                        <div dir="rtl"
+                            style="float:right ; padding: 23px; display: flex; justify-content: center;margin-bottom: 20px;flex-direction: column;">
+                            <div style="max-height:300px; border: solid 1px #9d9ea0;padding: 32px; font-size: 25px; border-radius: 10px;overflow: scroll;overflow-wrap:normal;word-wrap:break-word;"
+                                class="post-space text-light">
+                                {{ task.words }}
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                            <div
+                                style="border: 1px solid #9d9ea0;width: 95%; height: 50px;border-radius: 5px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center;">
+                                <div onclick="like()"><svg style="cursor: pointer;color: #ffff; display: ;"
+                                        xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                        class="bi bi-hand-thumbs-up-fill" id="likee" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
+                                    </svg></div>
+                                <div onclick="love()">
+                                    <svg style="margin-left: 40px; color: #ffff; cursor: pointer;"
+                                        xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                                        class="bi bi-heart-fill" viewBox="0 0 16 16" id="love">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--=========######################################========-->
+                    <!--=========######################################========-->
+                </div>
+
+
+
+            </div>
+            <!--=========######################################========-->
+        </div>
+        <!--=========######################################========-->
+        <script src="../assest/js/vue.js"></script>
+        <script>
+            var nonaty = new Vue({
+                el: '#akera',
+
+                data: {
+                    tasks: [],
+                    taskText: '',
+                },
+                methods: {
+                    addTask: function () {
+                        this.tasks.push({ words: this.taskText });
+                        this.taskText = '';
+                    },
+                    deleteTask: function (index) {
+                        this.tasks.splice(index, 1);
+                    }
+                }
+            });
+        </script>
+
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="../assest/js/main.js"></script>
+<script src="../assest/js/Auth.js" type="module"></script>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/css/home.css">
+
+
+    <title>Home</title>
+</head>
+<html>
+
+<body>
+
+    <div class="container mt-2">
+
+        <div style="font-size: 25px;cursor: default;"
+            class="btn btn-dark d-flex justify-content-between font-monospace text-light">
+            <div>
+                <span>Ur Profile </span>
+            </div>
+            <div>ID:<span id="ID"></span></div>
+        </div>
+
+        <div class="row container mt-4">
+            <div class="col-md-6 d-flex justify-content-center">
+                <img id="img" class="border-2 border-secondary border"
+                    style="cursor: default; background:  url('../assest/img/user.jpg'); height: 300px; width: 300px;border-radius: 50%;background-position: center;background-size: cover;cursor: pointer;">
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" id="name" placeholder="Name... " class="form-control font-monospace">
+                <input type="email" id="email" disabled class="form-control mt-1 font-monospace">
+                <div class="container">
+                    <hr>
+                </div>
+                <textarea name="" style="resize: none;" placeholder="BIO..." class="form-control mt-3 font-monospace"
+                    id="info" cols="30" rows="10"></textarea>
+            </div>
+
+        </div>
+    </div>
+    <div class="rf-en" id="cookie_message" style="display: none;">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+            <img class="cookie-icon" src="../assest/img/construction.png" width="80" height="76" alt="Dreft icon">
+
+            <div>
+                <p style="font-size: 18px;" class="cookie-msg font fw-bold font-monospace">A dreft is found, Do you want to restore it</p>
+            </div>
+            
+            <div>
+                <button class="rf-btn blue" id="cancelDraft">Discard</button>
+                <button class="rf-btn blue" id="RestoreDraft">Restore</button>
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+<script src="../assest/js/Auth.js" type="module"></script>
+<script type="module">
+    import { Auth_onAuthStateChanged, auth_Confirm, readFile } from '../assest/js/Auth.js'
+    Auth_onAuthStateChanged(auth_Confirm, function (e) { ; document.getElementById('img').src = e.photoURL;; document.getElementById('name').value = e.displayName; document.getElementById('email').value = e.email; document.getElementById('ID').innerHTML = e.uid.substring(0, 8) + '...' })
+    document.getElementById('img').onclick = function () { var file = document.createElement("input"); file.type = 'file'; file.accept = "image/*"; file.click(); file.addEventListener("change", function () { readFile(this) }) }
+    if(localStorage.getItem('draft') == 1){document.getElementById('cookie_message').style.display='flex'}
+    document.getElementById('name').addEventListener("keyup",function(e){localStorage.setItem('draft',1);localStorage.setItem('draft_name',e.target.value)})
+    document.getElementById('info').addEventListener('keyup',function(e){localStorage.setItem('draft',1);localStorage.setItem('draft_info',e.target.value)})
+    document.getElementById('RestoreDraft').addEventListener('click',function(){restoreDreft()})
+    document.getElementById('cancelDraft').addEventListener('click',function(){deleteDreft()})
+
+    function restoreDreft(){
+        if(localStorage.getItem('draft_name')){document.getElementById('name').value=localStorage.getItem('draft_name')}
+        if(localStorage.getItem('draft_info')){document.getElementById('info').innerHTML=localStorage.getItem('draft_info')}
+        document.getElementById('cookie_message').style.display='none'
+        deleteDreft()
+    }
+
+    function deleteDreft(){
+        if(localStorage.getItem('draft')){localStorage.removeItem('draft')}
+        if(localStorage.getItem('draft_name')){localStorage.removeItem('draft_name')}
+        if(localStorage.getItem('draft_info')){localStorage.removeItem('draft_info')}
+        document.getElementById('cookie_message').style.display='none'
+    }
+
+
+
+</script>    
+</html>
